@@ -4,9 +4,12 @@ export default {
      * @param  {Vue} Vue
      * @param  {object} options  lazyload options
      */
-    install(Vue, options = {}) {
+	install: function(Vue, options) {
+
+		options = typeof options == 'undefined' ? {} : options;
+
         Vue.directive("wow", {
-            bind(el, binding) {
+            bind: function(el, binding) {
                 let animateCofig = binding.value;
                 el.style.visibility = "hidden";
                 el.style["animation-name"] = "none";
